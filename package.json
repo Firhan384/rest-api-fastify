@@ -1,0 +1,37 @@
+{
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/figlet": "^1.5.6",
+    "@types/node": "^20.4.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize-cli": "^6.6.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@fastify/jwt": "^7.2.0",
+    "@fastify/rate-limit": "^8.0.1",
+    "ajv": "^8.12.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.19.2",
+    "fastify-decorators": "^3.15.0",
+    "figlet": "^1.6.0",
+    "mysql2": "^3.5.0",
+    "sequelize": "^6.32.1"
+  },
+  "name": "rest-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx ts-node -T index.ts",
+    "build": "tsc -p tsconfig.json",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:migrate": "npx sequelize-cli db:migrate"
+  },
+  "keywords": ["fastify with clean architecture"],
+  "author": "Firhan Abigael",
+  "license": "ISC",
+  "description": "",
+  "type": "commonjs"
+}
