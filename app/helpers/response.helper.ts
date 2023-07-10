@@ -1,5 +1,6 @@
 import { FastifyReply } from "fastify";
 import { FastifyReplyToken, Inject, Service as Helper } from "fastify-decorators";
+import { HttpStatusCode } from "../utils/http-status.util";
 
 
 @Helper()
@@ -14,8 +15,8 @@ export default class responseHelper {
    * @returns
    */
   public ok<T>(data: T, message: string): FastifyReply {
-    return this.res.code(200).send({
-      statusCode: 200,
+    return this.res.code(HttpStatusCode.OK).send({
+      statusCode: HttpStatusCode.OK,
       error: false,
       data,
       message,
@@ -29,8 +30,8 @@ export default class responseHelper {
    * @returns
    */
   public created<T>(data: T, message: string): FastifyReply {
-    return this.res.code(201).send({
-      statusCode: 201,
+    return this.res.code(HttpStatusCode.Created).send({
+      statusCode: HttpStatusCode.Created,
       error: false,
       data,
       message,
@@ -44,8 +45,8 @@ export default class responseHelper {
    * @returns
    */
   public notFound<T>(data: T, message: string): FastifyReply {
-    return this.res.code(404).send({
-      statusCode: 404,
+    return this.res.code(HttpStatusCode.NotFound).send({
+      statusCode: HttpStatusCode.NotFound,
       error: true,
       data,
       message,
@@ -59,8 +60,8 @@ export default class responseHelper {
    * @returns
    */
   public badRequest<T>(data: T, message: string): FastifyReply {
-    return this.res.code(400).send({
-      statusCode: 400,
+    return this.res.code(HttpStatusCode.BadRequest).send({
+      statusCode: HttpStatusCode.BadRequest,
       error: true,
       data,
       message,
@@ -74,8 +75,8 @@ export default class responseHelper {
    * @returns
    */
   public unprocessableEntity<T>(data: T, message: string): FastifyReply {
-    return this.res.code(422).send({
-      statusCode: 422,
+    return this.res.code(HttpStatusCode.UnprocessableEntity).send({
+      statusCode: HttpStatusCode.UnprocessableEntity,
       error: true,
       data,
       message,
@@ -89,8 +90,8 @@ export default class responseHelper {
    * @returns
    */
   public internalServer<T>(data: T, message: string): FastifyReply {
-    return this.res.code(500).send({
-      statusCode: 500,
+    return this.res.code(HttpStatusCode.InternalServerError).send({
+      statusCode: HttpStatusCode.InternalServerError,
       error: true,
       data,
       message,
