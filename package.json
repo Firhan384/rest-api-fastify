@@ -3,6 +3,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/figlet": "^1.5.6",
     "@types/node": "^20.4.1",
+    "pino-pretty": "^10.0.1",
     "reflect-metadata": "^0.1.13",
     "sequelize-cli": "^6.6.1",
     "ts-node": "^10.9.1",
@@ -29,7 +30,9 @@
     "db:seed": "npx sequelize-cli db:seed:all",
     "db:migrate": "npx sequelize-cli db:migrate"
   },
-  "keywords": ["fastify with clean architecture"],
+  "keywords": [
+    "fastify with clean architecture"
+  ],
   "author": "Firhan Abigael",
   "license": "ISC",
   "description": "",
