@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { instanceDB } from "../connection";
 
-class UserModel extends Model {
+export class UserModel extends Model {
   declare id: number;
   declare email: string;
   declare password: string;
@@ -28,7 +28,7 @@ UserModel.init(
     role: {
       type: DataTypes.ENUM,
       values: ["admin", "client"],
-      defaultValue: "client"
+      defaultValue: "client",
     },
     isActive: {
       type: DataTypes.BOOLEAN,
@@ -47,5 +47,10 @@ UserModel.init(
   {
     modelName: "users",
     sequelize: instanceDB,
+    defaultScope: {
+      attributes: {
+        exclude: ["password"],
+      },
+    },
   }
 );
