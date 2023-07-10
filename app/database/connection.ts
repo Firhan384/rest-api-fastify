@@ -4,7 +4,7 @@ import { AppConfig } from "../configs/app.config";
 /**
  * instanceDB just variable global to access with models
  */
-export const instanceDB = new Sequelize(AppConfig.DB_NAME, AppConfig.DB_NAME, AppConfig.DB_PASS, {
+export const instanceDB = new Sequelize(AppConfig.DB_NAME, AppConfig.DB_USER, AppConfig.DB_PASS, {
   host: AppConfig.DB_HOST,
   port: AppConfig.DB_PORT,
   dialect: AppConfig.DB_DIALECT as Dialect,
