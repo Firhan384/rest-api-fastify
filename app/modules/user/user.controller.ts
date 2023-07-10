@@ -4,16 +4,7 @@ import { JwtMiddleware } from "../../middlewares/jwt.middleware";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { schema, schemaCompile } from "./schemas/user-create.schema";
 
-const bodyJsonSchema = {
-  type: "object",
-  required: ["someKey", "someOtherKey"],
-  properties: {
-    someKey: { type: "string" },
-    someOtherKey: { type: "number" },
-  },
-};
-
-@Controller({ route: "/" })
+@Controller({ route: "/user" })
 export default class UserController {
   @Inject(UserService)
   private userService!: UserService;
@@ -43,9 +34,9 @@ export default class UserController {
   }
 
   @GET({
-    url: "/goodbye",
+    url: "/list",
   })
-  async goodbyeHandler(request: FastifyRequest, reply: FastifyReply) {
-    reply.send({ hello: "world" });
+  async list() {
+    return await this.userService.getUsers();
   }
 }
