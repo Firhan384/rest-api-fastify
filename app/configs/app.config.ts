@@ -13,6 +13,10 @@ interface appConfig {
   JWT_SECRET: string;
   JWT_EXPIRED: string;
   LOG_NAME: string;
+  SMTP_HOST: string;
+  SMTP_PORT: number;
+  SMTP_USER: string;
+  SMTP_PASS: string;
 }
 
 /**
@@ -31,4 +35,8 @@ export const AppConfig: appConfig = {
   JWT_SECRET: String(process.env.JWT_SECRET),
   JWT_EXPIRED: String(process.env.JWT_EXPIRED),
   LOG_NAME: String(process.env.LOG_NAME),
+  SMTP_HOST: String(process.env.SMTP_HOST),
+  SMTP_PORT: parseInt(process.env.SMTP_PORT ?? "0"),
+  SMTP_USER: String(process.env.SMTP_USER),
+  SMTP_PASS: String(process.env.SMTP_PASS)
 };
