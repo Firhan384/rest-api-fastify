@@ -33,7 +33,11 @@ npm run db:seed
 
 ## run with docker
 ```
-soon
+first build image
+docker build -f Dockerfile -t rest-api:v.1.0 .
+
+then, run the image and create container
+docker run --name rest-api-fastify -p 3000:3000 -d rest-api:v.1.0
 ```
 
 ## using validation request
