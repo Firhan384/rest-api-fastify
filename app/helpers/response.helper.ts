@@ -1,7 +1,10 @@
 import { FastifyReply } from "fastify";
-import { FastifyReplyToken, Inject, Service as Helper } from "fastify-decorators";
+import {
+  FastifyReplyToken,
+  Inject,
+  Service as Helper,
+} from "fastify-decorators";
 import { HttpStatusCode } from "../utils/http-status.util";
-
 
 @Helper()
 export default class responseHelper {
@@ -77,6 +80,21 @@ export default class responseHelper {
   public unprocessableEntity<T>(data: T, message: string): FastifyReply {
     return this.res.code(HttpStatusCode.UnprocessableEntity).send({
       statusCode: HttpStatusCode.UnprocessableEntity,
+      error: true,
+      data,
+      message,
+    });
+  }
+
+  /**
+   * response with status 403
+   * @param data any
+   * @param message string
+   * @returns
+   */
+  public forbidden<T>(data: T, message: string): FastifyReply {
+    return this.res.code(HttpStatusCode.Forbidden).send({
+      statusCode: HttpStatusCode.Forbidden,
       error: true,
       data,
       message,

@@ -7,7 +7,7 @@ saya terinspirasi dari laravel untuk struktur foldernya, dan kali ini saya coba 
 ## feature list
 - jwt
 - rate limit
-- send email with smtp (soon)
+- send email with smtp
 - logging
 - validation
 
@@ -60,7 +60,7 @@ export const schema: JSONSchemaType<MyData> = {
 export const schemaCompile = ajv.compile(schema);
 ```
 and then you must to inject the schemaCompile and schema in here
-```
+```auth.controller.ts
   @POST({
     url: "/your-endpoint",
     options: {
@@ -76,7 +76,7 @@ and then you must to inject the schemaCompile and schema in here
 
 
 ## using rate limit
-```
+```auth.controller.ts
   @POST({
     url: "/your-endpoint",
     options: {
